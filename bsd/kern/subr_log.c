@@ -866,7 +866,8 @@ oslog_init(void)
 		size + (2 * PAGE_SIZE), VM_KERN_MEMORY_LOG,
 		KMA_GUARD_FIRST | KMA_GUARD_LAST);
 	if (kr != KERN_SUCCESS) {
-		panic("Failed to allocate memory for firehose logging buffer");
+		printf("Failed to allocate memory for firehose logging buffer\n");
+		return;
 	}
 	kernel_firehose_addr += PAGE_SIZE;
 	bzero((void *)kernel_firehose_addr, size);
