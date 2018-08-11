@@ -1367,8 +1367,6 @@ c_seg_minor_compaction_and_unlock(c_segment_t c_seg, boolean_t clear_busy)
 	if (c_seg->c_firstemptyslot >= c_seg->c_nextslot || C_SEG_UNUSED_BYTES(c_seg) < PAGE_SIZE)
 		goto done;
 
-/* TODO: assert first emptyslot's c_size is actually 0 */
-
 #if DEVELOPMENT || DEBUG
 	C_SEG_MAKE_WRITEABLE(c_seg);
 #endif
@@ -1378,7 +1376,9 @@ c_seg_minor_compaction_and_unlock(c_segment_t c_seg, boolean_t clear_busy)
 #endif
 	c_indx = c_seg->c_firstemptyslot;
 	c_dst = C_SEG_SLOT_FROM_INDEX(c_seg, c_indx);
-	
+
+	assert(c_dst->c_size == 0);
+
 	old_populated_offset = c_seg->c_populated_offset;
 	c_offset = c_dst->c_offset;
 

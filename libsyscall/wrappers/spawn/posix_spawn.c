@@ -1272,7 +1272,6 @@ posix_spawn_file_actions_addinherit_np(posix_spawn_file_actions_t *file_actions,
 	if (filedes < 0 || filedes >= OPEN_MAX)
 		return (EBADF);
 
-#if defined(POSIX_SPAWN_CLOEXEC_DEFAULT)	// TODO: delete this check
 	/* If we do not have enough slots, grow the structure */
 	if ((*psactsp)->psfa_act_count == (*psactsp)->psfa_act_alloc) {
 		/* need to grow file actions structure */
@@ -1287,7 +1286,7 @@ posix_spawn_file_actions_addinherit_np(posix_spawn_file_actions_t *file_actions,
 
 	psfileact->psfaa_type = PSFA_INHERIT;
 	psfileact->psfaa_filedes = filedes;
-#endif
+	
 	return (0);
 }
 

@@ -21,7 +21,7 @@ DATAFILES = \
 	dir.h dirent.h disk.h dkstat.h dtrace.h dtrace_glue.h dtrace_impl.h \
 	errno.h ev.h event.h fasttrap.h fasttrap_isa.h fcntl.h file.h filedesc.h filio.h fsgetpath.h gmon.h \
 	ioccom.h ioctl.h \
-	ioctl_compat.h ipc.h kernel.h kernel_types.h kern_event.h lctx.h loadable_fs.h lock.h lockf.h \
+	ioctl_compat.h ipc.h kernel.h kernel_types.h kern_event.h loadable_fs.h lock.h lockf.h \
 	kauth.h kdebug.h kdebug_signpost.h kern_control.h lockstat.h malloc.h \
 	mbuf.h mman.h mount.h msg.h msgbuf.h netport.h param.h paths.h pipe.h poll.h \
 	proc.h  proc_info.h ptrace.h queue.h quota.h reboot.h resource.h resourcevar.h \
